@@ -1,70 +1,178 @@
-# Getting Started with Create React App
+# Portfolio Website - Bhumika Verma
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Student:** Bhumika Verma  
+**Course:** Full-Stack Web Development  
+**Institution:** Red River College Polytechnic  
+**Assignment:** Coding Assignment 14  
+**Graduation:** May 2026
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+##  How to Run
 
-### `npm start`
+### Prerequisites
+- Docker Desktop installed and running
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Commands
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**1. Clone Repository**
+```bash
+git clone https://github.com/Bhumika786-sudo/portfolio-site.git
+cd portfolio-site
+```
 
-### `npm test`
+**2. Build Docker Image**
+```bash
+docker build -t verma_bhumika_coding_assignment14 .
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**3. Run Container**
+```bash
+docker run -d -p 5575:5575 --name verma_bhumika_coding_assignment14 verma_bhumika_coding_assignment14
+```
 
-### `npm run build`
+**4. Access Portfolio**
+```
+http://localhost:5575
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Stop Container
+```bash
+docker stop verma_bhumika_coding_assignment14
+docker rm verma_bhumika_coding_assignment14
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+##  Portfolio Sections
 
-### `npm run eject`
+### 1. Basic Information
+- Name, title, bio, photo
+- Contact links (Email, GitHub, LinkedIn)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 2. Work/Projects (6 Projects)
+- Northern Lights Outdoor Gear (Ruby on Rails E-commerce)
+- UI Component Library (React/TypeScript/Storybook)
+- Rails CRM Application (Active Admin)
+- Penetration Testing Portfolio (Kali Linux/Metasploit)
+- Python Data Analysis (Pandas/SQLite)
+- PHP Secure Blog
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 3. Skills (5 Categories)
+- **Languages:** JavaScript, TypeScript, Ruby, Python, PHP, HTML/CSS, SQL
+- **Frameworks:** React, Ruby on Rails, Node.js, Bootstrap
+- **Tools:** Docker, Git, VS Code, Storybook, Nginx
+- **Security:** Kali Linux, Metasploit, OWASP Top 10
+- **Databases:** PostgreSQL, MySQL, SQLite
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 4. Resources
+- React Documentation
+- Ruby on Rails Guides
+- MDN Web Docs
+- Docker Documentation
+- OWASP
+- GitHub
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 5. Developer Setup
+- VS Code extensions (Prettier, ESLint, GitLens)
+- WSL with Ubuntu
+- Cascadia Code font
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+##  Technical Details
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Docker Configuration
+- **Container Name:** verma_bhumika_coding_assignment14
+- **Port:** 5575
+- **Base Image:** nginx:alpine
+- **Server:** Nginx
 
-### Code Splitting
+### Key Files
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**Dockerfile**
+```dockerfile
+FROM nginx:alpine
+COPY build /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 5575
+CMD ["nginx", "-g", "daemon off;"]
+```
 
-### Analyzing the Bundle Size
+**nginx.conf**
+- Configures server to listen on port 5575
+- Serves static files from production build
+- Handles React Router client-side routing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+##  Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```
+portfolio-site/
+build/              # Production build
+ public/
+ images/         # Profile photo
+ src/
+ components/     # React components (Header, About, Projects, Skills, etc.)
+ data/           # Portfolio content (portfolioData.js)
+ App.js
+ Dockerfile
+  nginx.conf
+   README.md
+```
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+##  Assignment Requirements
 
-### Deployment
+-  Container name: verma_bhumika_coding_assignment14
+- Runs on localhost:5575
+- Production build with Nginx
+-  All required sections (Basic Info, Work, Skills, Resources, Setup)
+-  Dockerfile and nginx.conf configured
+-  Professional design and styling
+-  Complete documentation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+##  Troubleshooting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Port already in use:**
+```bash
+docker stop verma_bhumika_coding_assignment14
+docker rm verma_bhumika_coding_assignment14
+```
+
+**Container won't start:**
+```bash
+docker logs verma_bhumika_coding_assignment14
+```
+
+**Need to rebuild:**
+```bash
+docker stop verma_bhumika_coding_assignment14
+docker rm verma_bhumika_coding_assignment14
+docker rmi verma_bhumika_coding_assignment14
+docker build -t verma_bhumika_coding_assignment14 .
+docker run -d -p 5575:5575 --name verma_bhumika_coding_assignment14 verma_bhumika_coding_assignment14
+```
+
+---
+
+##  Links
+
+- **GitHub:** https://github.com/Bhumika786-sudo/portfolio-site
+- **Portfolio:** http://localhost:5575
+
+---
+
+## 👤 Contact
+
+**Bhumika Verma**  
+ bverma2@rrc.ca  
+ [@Bhumika786-sudo](https://github.com/Bhumika786-sudo)  
+ [LinkedIn](https://www.linkedin.com/in/bhumika-verma-886412346/)
+
+---
+
